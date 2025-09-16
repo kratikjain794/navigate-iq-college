@@ -50,6 +50,10 @@ All colors MUST be HSL. Inspired by modern college navigation apps.
     --nav-library: 160 100% 65%;
     --nav-canteen: 30 100% 65%;
     --nav-department: 260 100% 70%;
+    --nav-ngo: 340 82% 52%;
+    --nav-parking: 200 89% 47%;
+    --nav-digital-centre: 262 83% 58%;
+    --nav-horse-camp: 119 41% 40%;
 
     /* Gradients for beautiful backgrounds */
     --gradient-campus: linear-gradient(135deg, hsl(200 100% 85%) 0%, hsl(180 100% 90%) 100%);
@@ -183,5 +187,21 @@ All colors MUST be HSL. Inspired by modern college navigation apps.
 
   .nav-department {
     border-left: 4px solid hsl(var(--nav-department));
+  }
+
+  .nav-ngo {
+    border-left: 4px solid hsl(var(--nav-ngo));
+  }
+
+  .nav-parking {
+    border-left: 4px solid hsl(var(--nav-parking));
+  }
+
+  .nav-digital-centre {
+    border-left: 4px solid hsl(var(--nav-digital-centre));
+  }
+
+  .nav-horse-camp {
+    border-left: 4px solid hsl(var(--nav-horse-camp));
   }
 }

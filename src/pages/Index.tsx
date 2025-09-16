@@ -1,21 +1,40 @@
 import { useState } from "react";
 import { NavigationCard } from "@/components/NavigationCard";
 import { QRCodeModal } from "@/components/QRCodeModal";
-import { locations, Location } from "@/data/locations";
+import { SubLocationModal } from "@/components/SubLocationModal";
+import { locations, Location, SubLocation } from "@/data/locations";
 import { Shield, MapPin } from "lucide-react";
 
 const Index = () => {
-  const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<Location | SubLocation | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [subLocationModal, setSubLocationModal] = useState<{
+    isOpen: boolean;
+    location: Location | null;
+  }>({ isOpen: false, location: null });
 
   const handleLocationClick = (location: Location) => {
-    setSelectedLocation(location);
+    if (location.subLocations && location.subLocations.length > 0) {
+      setSubLocationModal({ isOpen: true, location });
+    } else if (location.url) {
+      setSelectedLocation(location);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleSubLocationSelect = (subLocation: SubLocation) => {
+    setSelectedLocation(subLocation);
+    setSubLocationModal({ isOpen: false, location: null });
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedLocation(null);
+  };
+
+  const handleCloseSubLocationModal = () => {
+    setSubLocationModal({ isOpen: false, location: null });
   };
 
   return (
@@ -72,14 +91,25 @@ const Index = () => {
         </footer>
 
         {/* QR Code Modal */}
-        {selectedLocation && (
+        {selectedLocation && selectedLocation.url && (
           <QRCodeModal
             isOpen={isModalOpen}
             onClose={handleCloseModal}
             location={{
               name: selectedLocation.name,
-              url: selectedLocation.url,
+              url: selectedLocation.url
             }}
+          />
+        )}
+
+        {/* Sub Location Modal */}
+        {subLocationModal.location && (
+          <SubLocationModal
+            isOpen={subLocationModal.isOpen}
+            onClose={handleCloseSubLocationModal}
+            title={subLocationModal.location.name}
+            subLocations={subLocationModal.location.subLocations || []}
+            onLocationSelect={handleSubLocationSelect}
           />
         )}
       </div>

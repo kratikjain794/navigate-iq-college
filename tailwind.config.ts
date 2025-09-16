@@ -53,6 +53,10 @@ export default {
           library: "hsl(var(--nav-library))",
           canteen: "hsl(var(--nav-canteen))",
           department: "hsl(var(--nav-department))",
+          ngo: "hsl(var(--nav-ngo))",
+          parking: "hsl(var(--nav-parking))",
+          "digital-centre": "hsl(var(--nav-digital-centre))",
+          "horse-camp": "hsl(var(--nav-horse-camp))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
