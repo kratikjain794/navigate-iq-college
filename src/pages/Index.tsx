@@ -56,11 +56,11 @@ const Index = () => {
             <div className="p-3 rounded-full bg-white/80 backdrop-blur-sm shadow-lg">
               <Shield className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-4xl font-bold text-foreground">
-              Smart Department Navigator
+            <h1 className="text-4xl font-bold text-white drop-shadow-lg shadow-black/50">
+              Smart Department Navigator using QR
             </h1>
           </div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto drop-shadow-md">
             Find your way around campus with ease. Scan QR codes to get instant directions to any location.
           </p>
         </header>
@@ -90,7 +90,7 @@ const Index = () => {
               Made for College Navigation
             </p>
             <p className="text-xs text-muted-foreground mt-1">
-              Scan & Go with Smart Department Navigator
+              Scan & Go with Smart Department Navigator using QR
             </p>
           </div>
         </footer>
