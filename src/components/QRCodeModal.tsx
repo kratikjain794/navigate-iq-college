@@ -10,6 +10,7 @@ interface QRCodeModalProps {
   location: {
     name: string;
     url: string;
+    description?: string;
   };
 }
 
@@ -56,6 +57,11 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({ isOpen, onClose, locat
                   alt={`QR Code for ${location.name}`}
                   className="w-48 h-48"
                 />
+              </div>
+            )}
+            {location.description && (
+              <div className="text-center mb-2">
+                <p className="text-sm font-medium text-primary">{location.description}</p>
               </div>
             )}
             <p className="text-sm text-muted-foreground text-center">

@@ -131,7 +131,7 @@ All colors MUST be HSL. Inspired by modern college navigation apps.
 
   body {
     @apply bg-background text-foreground font-sans;
-    background: var(--gradient-campus), url('/src/assets/campus-background.jpg');
+    background: var(--gradient-campus), url('/src/assets/ips-campus.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

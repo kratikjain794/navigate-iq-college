@@ -2,8 +2,9 @@ import { useState } from "react";
 import { NavigationCard } from "@/components/NavigationCard";
 import { QRCodeModal } from "@/components/QRCodeModal";
 import { SubLocationModal } from "@/components/SubLocationModal";
+import { SearchBar } from "@/components/SearchBar";
 import { locations, Location, SubLocation } from "@/data/locations";
-import { Shield, MapPin } from "lucide-react";
+import { Shield } from "lucide-react";
 
 const Index = () => {
   const [selectedLocation, setSelectedLocation] = useState<Location | SubLocation | null>(null);
@@ -15,6 +16,15 @@ const Index = () => {
 
   const handleLocationClick = (location: Location) => {
     if (location.subLocations && location.subLocations.length > 0) {
+      setSubLocationModal({ isOpen: true, location });
+    } else if (location.url) {
+      setSelectedLocation(location);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleSearchSelect = (location: Location | SubLocation) => {
+    if ('subLocations' in location && location.subLocations && location.subLocations.length > 0) {
       setSubLocationModal({ isOpen: true, location });
     } else if (location.url) {
       setSelectedLocation(location);
@@ -55,14 +65,9 @@ const Index = () => {
           </p>
         </header>
 
-        {/* Search Bar Mockup */}
+        {/* Functional Search Bar */}
         <div className="mb-12">
-          <div className="nav-card max-w-md mx-auto">
-            <div className="flex items-center gap-3 px-4 py-3">
-              <MapPin className="w-5 h-5 text-muted-foreground" />
-              <span className="text-muted-foreground">Where do you want to go?</span>
-            </div>
-          </div>
+          <SearchBar onLocationSelect={handleSearchSelect} />
         </div>
 
         {/* Navigation Cards Grid */}
@@ -97,7 +102,8 @@ const Index = () => {
             onClose={handleCloseModal}
             location={{
               name: selectedLocation.name,
-              url: selectedLocation.url
+              url: selectedLocation.url,
+              description: 'description' in selectedLocation ? selectedLocation.description : undefined
             }}
           />
         )}

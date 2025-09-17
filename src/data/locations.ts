@@ -10,6 +10,7 @@ export interface Location {
   url?: string;
   type: "department" | "playground" | "library" | "canteen" | "ngo" | "parking" | "digital-centre" | "horse-camp";
   subLocations?: SubLocation[];
+  description?: string;
 }
 
 export const locations: Location[] = [
@@ -65,7 +66,8 @@ export const locations: Location[] = [
     id: "library",
     name: "Library", 
     type: "library",
-    url: "https://maps.app.goo.gl/YourLibraryLocationHere"
+    url: "https://maps.app.goo.gl/SSrkKB6ApkfZa6jF8",
+    description: "The library is available on the 5th floor of the building"
   },
   {
     id: "canteen",
