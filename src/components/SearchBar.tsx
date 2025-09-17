@@ -67,12 +67,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onLocationSelect }) => {
 
   const handleResultClick = (result: SearchResult) => {
     if (result.isSubLocation) {
+      // For sub-locations, pass the sub-location object
       onLocationSelect({
         id: result.id,
         name: result.name,
         url: result.url || ""
-      });
+      } as SubLocation);
     } else {
+      // For main locations, pass the full location object
       const location = locations.find(loc => loc.id === result.id);
       if (location) {
         onLocationSelect(location);
@@ -101,11 +103,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onLocationSelect }) => {
 
       {/* Search Results */}
       {isFocused && searchResults.length > 0 && (
-        <Card className="absolute top-full left-0 right-0 mt-2 z-50 max-h-80 overflow-y-auto bg-card/95 backdrop-blur-sm border border-border/50">
+        <Card className="absolute top-full left-0 right-0 mt-2 z-50 max-h-80 overflow-y-auto bg-card/98 backdrop-blur-md border border-border/60 shadow-xl">
           {searchResults.map((result) => (
             <div
               key={`${result.id}-${result.isSubLocation}`}
-              className="p-3 hover:bg-accent/50 cursor-pointer border-b border-border/30 last:border-0 transition-colors"
+              className="p-3 hover:bg-accent/70 cursor-pointer border-b border-border/40 last:border-0 transition-colors"
               onClick={() => handleResultClick(result)}
             >
               <div className="flex items-start gap-3">

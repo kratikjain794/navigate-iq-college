@@ -131,11 +131,14 @@ All colors MUST be HSL. Inspired by modern college navigation apps.
 
   body {
     @apply bg-background text-foreground font-sans;
-    background: var(--gradient-campus), url('/src/assets/ips-campus.jpg');
+    background: linear-gradient(135deg, 
+      rgba(0, 0, 0, 0.7) 0%, 
+      rgba(0, 0, 0, 0.5) 50%, 
+      rgba(0, 0, 0, 0.7) 100%
+    ), url('/src/assets/ips-campus.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-blend-mode: overlay;
     min-height: 100vh;
   }
 }
