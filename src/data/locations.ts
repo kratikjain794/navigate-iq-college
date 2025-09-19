@@ -8,7 +8,7 @@ export interface Location {
   id: string;
   name: string;
   url?: string;
-  type: "department" | "playground" | "library" | "canteen" | "ngo" | "parking" | "digital-centre" | "horse-camp";
+  type: "department" | "playground" | "library" | "canteen" | "ngo" | "parking" | "digital-centre" | "horse-camp" | "gate";
   subLocations?: SubLocation[];
   description?: string;
 }
@@ -19,11 +19,6 @@ export const locations: Location[] = [
     name: "Department",
     type: "department",
     subLocations: [
-      {
-        id: "gate-2",
-        name: "IPS Gate No. 2",
-        url: "https://maps.app.goo.gl/2rw4zkVx9JjEYj4n9"
-      },
       {
         id: "business",
         name: "Institute of Business",
@@ -57,7 +52,13 @@ export const locations: Location[] = [
     ]
   },
   {
-    id: "playground", 
+    id: "gate-2",
+    name: "IPS Gate No. 2",
+    type: "gate",
+    url: "https://maps.app.goo.gl/2rw4zkVx9JjEYj4n9"
+  },
+  {
+    id: "playground",
     name: "Playground",
     type: "playground",
     url: "https://maps.app.goo.gl/nW78BRP1Ve2A9hfk9"

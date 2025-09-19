@@ -1,10 +1,10 @@
 import { Card } from "@/components/ui/card";
-import { Building2, GraduationCap, BookOpen, UtensilsCrossed, Heart, Car, Monitor, MapPin } from "lucide-react";
+import { Building2, GraduationCap, BookOpen, UtensilsCrossed, Heart, Car, Monitor, MapPin, DoorOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface NavigationCardProps {
   title: string;
-  type: "department" | "playground" | "library" | "canteen" | "ngo" | "parking" | "digital-centre" | "horse-camp";
+  type: "department" | "playground" | "library" | "canteen" | "ngo" | "parking" | "digital-centre" | "horse-camp" | "gate";
   onClick: () => void;
   className?: string;
 }
@@ -18,6 +18,7 @@ const iconMap = {
   parking: Car,
   "digital-centre": Monitor,
   "horse-camp": MapPin,
+  gate: DoorOpen,
 };
 
 const colorMap = {
@@ -29,6 +30,7 @@ const colorMap = {
   parking: "nav-parking",
   "digital-centre": "nav-digital-centre",
   "horse-camp": "nav-horse-camp",
+  gate: "nav-gate",
 };
 
 export const NavigationCard: React.FC<NavigationCardProps> = ({ 
@@ -61,7 +63,8 @@ export const NavigationCard: React.FC<NavigationCardProps> = ({
               type === "ngo" && "text-navigation-ngo",
               type === "parking" && "text-navigation-parking",
               type === "digital-centre" && "text-navigation-digital-centre",
-              type === "horse-camp" && "text-navigation-horse-camp"
+              type === "horse-camp" && "text-navigation-horse-camp",
+              type === "gate" && "text-navigation-gate"
             )}
           />
         </div>
