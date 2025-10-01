@@ -5,7 +5,7 @@ export default defineConfig({
     port: 10000,
     host: true,
     allowedHosts: [
-      'navigate-ip-college.onrender.com',
+      'navigate-iq-college.onrender.com',
       'navigate-jr-college.onrender.com'
     ]
   }
